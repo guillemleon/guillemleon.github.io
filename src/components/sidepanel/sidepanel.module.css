@@ -1,0 +1,27 @@
+.sidepanelContainer {
+    position: fixed;
+    height: 100vh;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+}
+
+.levelList {
+    list-style: none
+}
+
+.level {
+    width: 30px;
+    border: 2px solid #FFF;
+    margin: 40px 0;
+    border-radius: 50px;
+}
+
+.currentLevel {
+    width: 50px;
+    border: 2px solid #FF0F49;
+    margin: 40px 0;
+    border-radius: 50px;
+}
