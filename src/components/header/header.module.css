@@ -1,54 +1,51 @@
 .container {
-    position: fixed;
-    background-color: transparent;
-    width: 100vw;
-    height: 100px;
-    display: flex;
-    justify-content: center;
+  position: fixed;
+  background-color: transparent;
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
 }
 
 .content {
-    width: 1024px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 1140px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title {
-    color: #fff;
-    font-family: 'Montserrat-Regular', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
+  color: #fff;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .menuContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .icon {
-    width: 22px;
-    height: 22px;
-    margin: 0 10px;
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
 }
 
-@media screen and (max-width: 1024px) {
-    .content {
-        width: 100vw;
-    }
-
-    .title {
-        padding-left: 10px;
-    }
+@media screen and (max-width: 1140px) {
+  .content {
+    width: 90vw;
+  }
 }

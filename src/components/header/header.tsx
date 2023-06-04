@@ -4,11 +4,7 @@ import earth from "../../assets/images/earth.png";
 import menu from "../../assets/images/menu.png";
 import Image from "next/image";
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const header: FunctionComponent<Props> = (props) => {
+const header: FunctionComponent = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>

@@ -1,0 +1,13 @@
+.separator {
+  width: 168px;
+  height: 0px;
+  border: 3px solid #ff0f49;
+  border-radius: 50px;
+  margin: 40px 0;
+}
+
+@media screen and (max-width: 690px) {
+  .separator {
+    border: 2px solid #ff0f49;
+  }
+}
