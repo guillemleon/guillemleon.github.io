@@ -1,76 +1,80 @@
 "use client";
-import React, { FC, useEffect, useRef } from "react";
+import React, { FC, useRef, useEffect } from "react";
 import styles from "./cover.module.css";
-import Separator from "@/global/components/separator";
 import Image from "next/image";
-import selfSunset from "../../../assets/images/sunset-7.jpg";
+import backgroundImage from "../../../../public/images/sunset-7.jpg";
+import { useWindowSize } from "@/hooks/useWindowWidth";
+import {
+  updateMousePositionOnScroll,
+  updateMousePositionOnMouseMove,
+} from "@/global/utils";
 
 interface CoverProps {
   reference: any;
-  containerRef: any;
 }
 
-const Cover: FC<CoverProps> = ({ reference, containerRef }) => {
-  let coverElements = {
-    coverTitle: useRef(null),
-    separator: useRef(null),
-    coverSubtitle: useRef(null),
-  };
+const Cover: FC<CoverProps> = ({ reference }) => {
+  const isTablet =
+    typeof window !== "undefined" ? useWindowSize().width < 1224 : true;
+
+  const cursor: any = useRef(null);
 
   useEffect(() => {
-    handleAnimation(1, 0);
-    if (containerRef.current) {
-      containerRef.current.addEventListener("scroll", handleScrollDown);
+    if (window && cursor.current && !isTablet) {
+      window.addEventListener("mousemove", handleMouseEffect);
+      window.addEventListener("scroll", updateMousePosition);
     }
+    return () => {
+      window.removeEventListener("mousemove", handleMouseEffect);
+      window.removeEventListener("scroll", updateMousePosition);
+    };
   }, []);
 
-  const handleScrollDown = () => {
-    if (containerRef.current.scrollTop > 0) {
-      console.log(containerRef.current.clientHeight);
-      handleAnimation(0, -200);
-    }
-    if (containerRef.current.scrollTop === 0) {
-      handleAnimation(1, 0);
-    }
+  // Circle follows mouse position
+  const handleMouseEffect = (e: any) => {
+    const position = updateMousePositionOnMouseMove(e);
+    cursor.current.style.clipPath = `circle(200px at ${position.x}px ${position.y}px)`;
   };
 
-  function handleAnimation(opacity: number, translateY: number) {
-    let index = 0;
-    for (const [key, value] of Object.entries(coverElements)) {
-      if (value.current) {
-        setInterval(() => {
-          value.current.style.opacity = opacity;
-          value.current.style.transform = `translateY(${translateY}px)`;
-        }, 300 * index);
-        index++;
-      }
-    }
-  }
+  const updateMousePosition = () => {
+    const position = updateMousePositionOnScroll();
+    cursor.current.style.clipPath = `circle(200px at ${position.x}px ${position.y}px)`;
+  };
+
+  const renderBackground = () => {
+    return (
+      <>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.titleFirstLayer}>
+            Crafting innovation through the art of code.
+          </h1>
+        </div>
+        <div className={styles.backgroundContainer}>
+          <Image
+            className={styles.backgroundImage}
+            src={backgroundImage}
+            alt="Picture of the author"
+          />
+        </div>
+      </>
+    );
+  };
 
   return (
     <section ref={reference} className={styles.container}>
-      <div className={styles.titleContainer}>
-        <h1 ref={coverElements.coverTitle} className={styles.title}>
-          Guillem Leon
-        </h1>
-        <div
-          className={styles.separatorContainer}
-          ref={coverElements.separator}
-        >
-          <Separator />
+      <div className={styles.overlayer}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.titleOverlayer}>
+            Crafting innovation through the art of code.
+          </h1>
         </div>
-        <h2 ref={coverElements.coverSubtitle} className={styles.subtitle}>
-          Full-Stack Developer
-        </h2>
       </div>
-      <div className={styles.coverImageContainer}>
-        <div className={styles.overlayer} />
-        <Image
-          src={selfSunset}
-          alt="Myself image with sunset in Barcelona"
-          className={styles.coverImage}
-        />
-      </div>
+      <div className={styles.firstLayer}>{renderBackground()}</div>
+      {!isTablet && (
+        <div ref={cursor} className={styles.cursorLayer}>
+          {renderBackground()}
+        </div>
+      )}
     </section>
   );
 };

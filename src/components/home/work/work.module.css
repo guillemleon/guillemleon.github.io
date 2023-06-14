@@ -1,0 +1,187 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+}
+
+.workContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  width: 100%;
+  height: 270px;
+  display: flex;
+}
+
+.cardContainer:hover + .idContainer {
+  border: 1px solid rgba(255, 15, 73, 1);
+}
+
+.cardContainer:hover .titleContainer {
+  border: 1px solid rgba(255, 15, 73, 1);
+  background-color: rgba(255, 15, 73, 1);
+}
+
+.cardContainer:hover .projectsContainer {
+  height: 270px;
+}
+
+.idContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  border-top: 1px solid rgba(96, 96, 96, 0.8);
+}
+
+.id {
+  color: white;
+  font-family: "BebasNeue-Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4rem;
+  color: #ffffff;
+}
+
+.titleContainerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  border-top: 1px solid rgba(96, 96, 96, 0.8);
+  border-right: 1px solid rgba(96, 96, 96, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+.titleContainerRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  border-top: 1px solid rgba(96, 96, 96, 0.8);
+  border-left: 1px solid rgba(96, 96, 96, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+.title {
+  color: white;
+  font-family: "BebasNeue-Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.subtitle {
+  color: white;
+  font-family: "BebasNeue-Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.projectsContainer {
+  width: 100%;
+  height: 0;
+  transition: all 0.4s ease-in-out;
+  display: flex;
+  list-style: none;
+  overflow: hidden;
+}
+
+.project {
+  position: relative;
+  width: 100%;
+}
+
+.project:hover > .projectOverlayer {
+  opacity: 0;
+}
+
+.projectImage {
+  width: 100% !important;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectOverlayer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "BebasNeue-Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4rem;
+  text-align: center;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 1224px) {
+}
+
+@media screen and (max-width: 840px) {
+  .projectsContainer {
+    flex-direction: column;
+  }
+
+  .cardContainer {
+    height: fit-content;
+  }
+
+  .projectsContainer {
+    height: fit-content;
+  }
+
+  .project {
+    height: 270px;
+  }
+
+  .projectOverlayer {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .titleContainerLeft,
+  .titleContainerRight {
+    border: none;
+    pointer-events: none;
+  }
+
+  .projectOverlayer {
+    display: none;
+  }
+
+  .cardContainer:hover .projectsContainer {
+    height: fit-content;
+  }
+}
