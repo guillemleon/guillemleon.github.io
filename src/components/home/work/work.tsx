@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import styles from "./work.module.css";
 import work from "../../../global/data/work.json";
 import { useWindowSize } from "@/hooks/useWindowWidth";
+import Image from "next/image";
 
 interface WorkProps {
   reference: any;
@@ -47,11 +48,13 @@ const Work: FC<WorkProps> = ({ reference }) => {
                 className={styles.project}
               >
                 <div className={styles.projectOverlayer}>{project.name}</div>
-                <img
+                <Image
                   src={i}
                   alt="Image"
                   className={styles.projectImage}
                   loading="lazy"
+                  width={100}
+                  height={100}
                 />
               </a>
             );
