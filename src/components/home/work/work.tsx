@@ -9,8 +9,7 @@ interface WorkProps {
 }
 
 const Work: FC<WorkProps> = ({ reference }) => {
-  const isMobile =
-    typeof window !== "undefined" ? useWindowSize().width < 840 : true;
+  const isMobile = useWindowSize().width < 840 || true;
 
   const renderWorkCard = (work: any) => {
     return (

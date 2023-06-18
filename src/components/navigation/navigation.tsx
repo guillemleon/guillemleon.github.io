@@ -11,8 +11,7 @@ interface NavigationProps {
 
 const Navigation: FC<NavigationProps> = (props) => {
   const { coverRef, aboutRef, workRef, contactRef } = props;
-  const isMobile =
-    typeof window !== "undefined" ? useWindowSize().width < 1224 : true;
+  const isMobile = useWindowSize().width < 1224 || true;
 
   const scrollTo = (reference: any) => {
     reference.current.scrollIntoView({

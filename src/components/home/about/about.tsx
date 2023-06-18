@@ -12,8 +12,7 @@ interface AboutProps {
 }
 
 const About: FC<AboutProps> = ({ reference }) => {
-  const isTablet =
-    typeof window !== "undefined" ? useWindowSize().width < 1224 : true;
+  const isTablet = useWindowSize().width < 1224 || true;
 
   const cursor: any = useRef(null);
   const aboutRef: any = useRef(null);
@@ -68,9 +67,9 @@ const About: FC<AboutProps> = ({ reference }) => {
       <div ref={reference} className={styles.containerMain}>
         <div className={styles.titleMain}>ABOUT ME</div>
         <h2 className={styles.textMain}>
-          I'm a Passionate software engineer skilled in frontend and backend
+          {`I'm a Passionate software engineer skilled in frontend and backend
           technologies. Turning ideas into efficient, visually appealing
-          solutions with a resolute and detail-oriented approach.
+          solutions with a resolute and detail-oriented approach.`}
         </h2>
         <a href="/about" className={styles.buttonMain}>
           SEE MORE
@@ -80,9 +79,9 @@ const About: FC<AboutProps> = ({ reference }) => {
         <div ref={cursor} className={styles.containerCursor}>
           <div className={styles.titleCursor}>ABOUT ME</div>
           <h2 className={styles.textCursor}>
-            I'm a Passionate software engineer skilled in frontend and backend
-            technologies. Turning ideas into efficient, visually appealing
-            solutions with a resolute and detail-oriented approach.
+            {`I'm a Passionate software engineer skilled in frontend and backend
+          technologies. Turning ideas into efficient, visually appealing
+          solutions with a resolute and detail-oriented approach.`}
           </h2>
           <a href="/about" className={styles.buttonCursor}>
             SEE MORE
