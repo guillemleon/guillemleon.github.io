@@ -4,9 +4,11 @@ import styles from "./work.module.css";
 import work from "../../../global/data/work.json";
 import { useWindowSize } from "@/hooks/useWindowWidth";
 
-interface WorkProps {}
+interface WorkProps {
+  reference: any;
+}
 
-const Work: FC<WorkProps> = ({}) => {
+const Work: FC<WorkProps> = ({ reference }) => {
   const isMobile =
     typeof window !== "undefined" ? useWindowSize().width < 840 : true;
 
@@ -40,6 +42,7 @@ const Work: FC<WorkProps> = ({}) => {
             const i = project.imagePath;
             return (
               <a
+                key={project.id}
                 target="_blank"
                 href={project.siteUrl}
                 className={styles.project}
@@ -60,7 +63,7 @@ const Work: FC<WorkProps> = ({}) => {
   };
 
   return (
-    <section className={styles.container}>
+    <section ref={reference} className={styles.container}>
       <ul className={styles.workContainer}>
         {work.map((w) => renderWorkCard(w))}
       </ul>

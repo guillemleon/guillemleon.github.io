@@ -16,6 +16,7 @@
   z-index: 0;
   background-size: cover;
   background-blend-mode: screen;
+  user-select: none;
 }
 
 .cursorLayer {
@@ -71,6 +72,8 @@
   font-style: normal;
   font-weight: 400;
   text-align: center;
+  padding: 15px;
+  user-select: none;
 }
 
 .titleOverlayer {
@@ -80,13 +83,11 @@
   font-style: normal;
   font-weight: 400;
   text-align: center;
+  padding: 15px;
+  user-select: none;
 }
 
 @media screen and (max-width: 1224px) {
-  .container {
-    padding: 10px;
-  }
-
   .titleFirstLayer {
     font-size: 4rem;
   }

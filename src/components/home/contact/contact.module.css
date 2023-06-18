@@ -1,0 +1,65 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a0a0a;
+  position: relative;
+}
+
+.backgroundImageContainer {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.titleContainer {
+  width: 95vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+.title {
+  color: white;
+  font-family: "BebasNeue-Regular", sans-serif;
+  font-size: 6.5rem;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  user-select: none;
+}
+
+.title::first-letter {
+  color: #ff0f49;
+}
+
+.subtitle {
+  color: white;
+  font-family: "Montserrat-Light", sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+}
+
+@media screen and (max-width: 1224px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+}

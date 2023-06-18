@@ -52,6 +52,7 @@
   font-weight: 400;
   font-size: 4rem;
   color: #ffffff;
+  user-select: none;
 }
 
 .titleContainerLeft {
@@ -84,6 +85,7 @@
   font-size: 4rem;
   color: #ffffff;
   text-align: center;
+  user-select: none;
 }
 
 .subtitle {
@@ -94,6 +96,7 @@
   font-size: 2rem;
   color: #ffffff;
   text-align: center;
+  user-select: none;
 }
 
 .projectsContainer {
@@ -178,7 +181,8 @@
   }
 
   .projectOverlayer {
-    display: none;
+    height: 60px;
+    bottom: 0;
   }
 
   .cardContainer:hover .projectsContainer {

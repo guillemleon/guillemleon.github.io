@@ -22,6 +22,7 @@
   font-weight: 400;
   font-size: 2rem;
   color: #ff0f49;
+  user-select: none;
 }
 
 .textMain {
@@ -31,6 +32,7 @@
   font-size: 4rem;
   color: white;
   margin: 3rem 0;
+  user-select: none;
 }
 
 .buttonMain {
@@ -48,6 +50,7 @@
   font-weight: 400;
   font-size: 2rem;
   cursor: pointer;
+  user-select: none;
 }
 
 .containerCursor {
@@ -70,6 +73,7 @@
   font-weight: 400;
   font-size: 2rem;
   color: black;
+  user-select: none;
 }
 
 .textCursor {
@@ -79,6 +83,7 @@
   font-size: 4rem;
   color: #ff0f49;
   margin: 3rem 0;
+  user-select: none;
 }
 
 .buttonCursor {
@@ -96,6 +101,7 @@
   font-weight: 400;
   font-size: 2rem;
   cursor: pointer;
+  user-select: none;
 }
 
 @media screen and (max-width: 1224px) {

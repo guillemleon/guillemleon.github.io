@@ -72,7 +72,9 @@ const About: FC<AboutProps> = ({ reference }) => {
           technologies. Turning ideas into efficient, visually appealing
           solutions with a resolute and detail-oriented approach.
         </h2>
-        <button className={styles.buttonMain}>SEE MORE</button>
+        <a href="/about" className={styles.buttonMain}>
+          SEE MORE
+        </a>
       </div>
       {!isTablet && (
         <div ref={cursor} className={styles.containerCursor}>
@@ -82,7 +84,9 @@ const About: FC<AboutProps> = ({ reference }) => {
             technologies. Turning ideas into efficient, visually appealing
             solutions with a resolute and detail-oriented approach.
           </h2>
-          <button className={styles.buttonCursor}>SEE MORE</button>
+          <a href="/about" className={styles.buttonCursor}>
+            SEE MORE
+          </a>
         </div>
       )}
     </section>
